@@ -3,6 +3,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -11,6 +12,9 @@ async function bootstrap() {
     new FastifyAdapter({ logger: true }),
   );
 
-  await app.listen(7000, '0.0.0.0');
+  const configService = app.get(ConfigService);
+  const port = configService.get('PORT');
+
+  await app.listen(port, '0.0.0.0');
 }
 bootstrap();
