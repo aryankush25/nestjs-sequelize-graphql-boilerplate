@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { User } from './users/user.model';
-import { UsersModule } from './users/users.module';
+import { User } from './user/user.model';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -14,7 +14,7 @@ import { UsersModule } from './users/users.module';
       database: 'notifications_service_server',
       models: [User],
     }),
-    UsersModule,
+    UserModule,
   ],
   controllers: [],
   providers: [],
