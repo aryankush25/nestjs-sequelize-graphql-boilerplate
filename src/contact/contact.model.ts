@@ -21,11 +21,11 @@ export class Contact extends Model {
   email: string;
 
   @CreatedAt
-  creationDate: Date;
+  created_at: Date;
 
   @UpdatedAt
-  updatedOn: Date;
+  updated_at: Date;
 
   @DeletedAt
-  deletionDate: Date;
+  deleted_at: Date;
 }
