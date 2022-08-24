@@ -16,10 +16,10 @@ export class Contact extends Model {
   @Column
   id: number;
 
-  @Column({ allowNull: true })
+  @Column({ allowNull: true, unique: true })
   user_id: string;
 
-  @Column({ allowNull: true })
+  @Column({ allowNull: true, unique: true })
   email: string;
 
   @CreatedAt
