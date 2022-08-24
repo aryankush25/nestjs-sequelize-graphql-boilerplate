@@ -10,8 +10,8 @@ import {
 
 @Table({ underscored: true })
 export class Contact extends Model {
-  @Column
   @PrimaryKey
+  @Column
   id: number;
 
   @Column({ allowNull: true })
