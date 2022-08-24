@@ -1,5 +1,6 @@
 import {
   PrimaryKey,
+  AutoIncrement,
   Column,
   Model,
   Table,
@@ -11,6 +12,7 @@ import {
 @Table({ underscored: true })
 export class Contact extends Model {
   @PrimaryKey
+  @AutoIncrement
   @Column
   id: number;
 
