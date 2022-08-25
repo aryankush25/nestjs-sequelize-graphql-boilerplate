@@ -1,4 +1,4 @@
-export class CreateContactDto {
+export class CreateContactInput {
   email?: string;
   userId?: string;
 }

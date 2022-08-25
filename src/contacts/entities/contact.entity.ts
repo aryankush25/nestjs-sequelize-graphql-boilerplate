@@ -17,17 +17,17 @@ export class Contact extends Model {
   id: number;
 
   @Column({ allowNull: true, unique: true })
-  user_id: string;
+  userId: string;
 
   @Column({ allowNull: true, unique: true })
   email: string;
 
   @CreatedAt
-  created_at: Date;
+  createdAt: Date;
 
   @UpdatedAt
-  updated_at: Date;
+  updatedAt: Date;
 
   @DeletedAt
-  deleted_at: Date;
+  deletedAt: Date;
 }
