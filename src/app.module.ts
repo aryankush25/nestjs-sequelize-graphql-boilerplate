@@ -1,10 +1,13 @@
 import * as Joi from 'joi';
+import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Dialect } from 'sequelize/types';
-import { Contact } from './contact/contact.model';
-import { ContactModule } from './contact/contact.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { Contact } from './contacts/entities/contact.entity';
+import { ContactsModule } from './contacts/contacts.module';
 
 @Module({
   imports: [
@@ -17,9 +20,7 @@ import { ContactModule } from './contact/contact.module';
         DATABASE_USER: Joi.string(),
         DATABASE_PASSWORD: Joi.string(),
         DATABASE_NAME: Joi.string(),
-
         PORT: Joi.number().default(8080),
-
         ENV: Joi.string()
           .valid('development', 'base', 'beta', 'qa', 'qa2')
           .default('development'),
@@ -34,7 +35,17 @@ import { ContactModule } from './contact/contact.module';
       database: process.env.DATABASE_NAME,
       models: [Contact],
     }),
-    ContactModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      debug: process.env.ENV !== 'base',
+      playground: process.env.ENV !== 'base',
+      typePaths: ['./**/*.graphql'],
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+      },
+      include: [],
+    }),
+    ContactsModule,
   ],
   controllers: [],
   providers: [],
