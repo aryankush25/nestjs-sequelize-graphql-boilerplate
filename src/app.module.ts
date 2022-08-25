@@ -9,6 +9,9 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Contact } from './contacts/entities/contact.entity';
 import { ContactsModule } from './contacts/contacts.module';
 
+// To generate new modules check out following doc
+// https://docs.nestjs.com/recipes/crud-generator
+
 @Module({
   imports: [
     ConfigModule.forRoot({
