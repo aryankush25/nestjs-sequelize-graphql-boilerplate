@@ -21,10 +21,10 @@ export class NotificationAudience extends Model {
   userId: string;
 
   @Column({ allowNull: false })
-  entity_id: string;
+  entityId: string;
 
   @Column({ allowNull: false })
-  entity_type: EntityType;
+  entityType: EntityType;
 
   @Column({ allowNull: false })
   action: ActionType;
