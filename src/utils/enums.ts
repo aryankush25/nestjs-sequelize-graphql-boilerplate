@@ -1,0 +1,23 @@
+export enum EntityType {
+  ROOM = 'ROOM',
+  SPACE = 'SPACE',
+  POST = 'POST',
+  USER = 'USER',
+  COMMENT = 'COMMENT',
+  REPLY = 'REPLY',
+}
+
+export enum ActionType {
+  CREATED = 'CREATED',
+  RE_POSTED = 'RE_POSTED',
+  QUOTED = 'QUOTED',
+  INTERESTED = 'INTERESTED',
+  COMMENTED = 'COMMENTED',
+  REPLIED = 'REPLIED',
+  MEMBER = 'MEMBER',
+  FOLLOWED = 'FOLLOWED',
+  PAID = 'PAID',
+  TAGGED = 'TAGGED',
+  MENTIONED = 'MENTIONED',
+  SUBSCRIBED = 'SUBSCRIBED',
+}
