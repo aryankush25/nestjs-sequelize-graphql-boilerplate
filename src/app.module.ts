@@ -6,10 +6,11 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Dialect } from 'sequelize/types';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { AppController } from './app.controller';
 import { Contact } from './contacts/entities/contact.entity';
 import { ContactsModule } from './contacts/contacts.module';
-import { AppController } from './app.controller';
 import { NotificationAudienceModule } from './notification_audience/notification_audience.module';
+import { NotificationAudience } from './notification_audience/entities/notification_audience.entity';
 
 // To generate new modules check out following doc
 // https://docs.nestjs.com/recipes/crud-generator
@@ -38,7 +39,7 @@ import { NotificationAudienceModule } from './notification_audience/notification
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      models: [Contact],
+      models: [Contact, NotificationAudience],
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
